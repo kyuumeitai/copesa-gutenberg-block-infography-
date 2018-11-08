@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: copesa-gutenberg-block-infography — CGB Gutenberg Block Plugin
- * Plugin URI: https://github.com/ahmadawais/create-guten-block/
- * Description: copesa-gutenberg-block-infography — is a Gutenberg plugin created via create-guten-block.
- * Author: mrahmadawais, maedahbatool
- * Author URI: https://AhmadAwais.com/
+ * Plugin Name: Copesa Gutenberg Block de Infografía
+ * Plugin URI: http://alex.acunaviera.com
+ * Description: Custom plugin para Copesa
+ * Author: Álex Acuña Viera
+ * Author URI: http://alex.acunaviera.com/
  * Version: 1.0.0
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
