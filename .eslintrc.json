@@ -152,7 +152,7 @@
 		"no-whitespace-before-property": "error",
 		"object-curly-spacing": ["error", "always"],
 		"padded-blocks": ["error", "never"],
-		"prefer-const": "error",
+		"prefer-const": "off",
 		"quote-props": ["error", "as-needed"],
 		"react/display-name": "off",
 		"react/jsx-curly-spacing": [
