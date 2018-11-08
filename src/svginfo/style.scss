@@ -4,11 +4,14 @@
  * CSS for both Frontend+Backend.
  */
 
-.wp-block-cgb-block-copesa-gutenberg-block-infography  {
-  background: $red;
-  border: 0.2rem solid $black;
-  color: $black;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem;
+.wp-block-copesa-blocks-svg-infography {
+  .svg{
+    width: 100%;
+  }
+  .svgimage{
+    .image-button{
+      display: block;
+      width: 100%;
+    }
+  }
 }

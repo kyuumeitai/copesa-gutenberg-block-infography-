@@ -60,7 +60,7 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 						value={ id }
 						render={ ( { open } ) => (
 							<Button className={ id ? 'image-button' : 'button button-large' } onClick={ open } >
-								{ ! id ? __( 'Subir SVG' ) : <img src={ url } alt="" /> }
+								{ ! id ? __( 'Subir SVG' ) : <img className="svg" src={ url } alt="" /> }
 							</Button>
 						) }
 					/>

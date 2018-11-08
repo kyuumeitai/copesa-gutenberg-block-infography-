@@ -1,18 +1,1 @@
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
- */
-.wp-block-cgb-block-copesa-gutenberg-block-infography {
-  background: orangered;
-  border: 0.2rem solid #292929;
-  color: #292929;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem; }
+.wp-block-copesa-blocks-svg-infography .svg{width:100%}.wp-block-copesa-blocks-svg-infography .svgimage .image-button{display:block;width:100%}
