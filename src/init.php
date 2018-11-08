@@ -21,33 +21,22 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 function copesa_gutenberg_block_infography_cgb_block_assets() {
-	// Styles.
 	wp_enqueue_style(
-		'copesa_gutenberg_block_infography-cgb-style-css', // Handle.
-		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ), // Block style CSS.
-		array( 'wp-blocks' ) // Dependency to include the CSS after it.
+		'copesa_gutenberg_block_infography-cgb-style-css',
+		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ),
+		array( 'wp-blocks' )
 		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: filemtime — Gets file modification time.
 	);
-} // End function copesa_gutenberg_block_infography_cgb_block_assets().
+}
 
 // Hook: Frontend assets.
 add_action( 'enqueue_block_assets', 'copesa_gutenberg_block_infography_cgb_block_assets' );
 
-/**
- * Enqueue Gutenberg block assets for backend editor.
- *
- * `wp-blocks`: includes block type registration and related functions.
- * `wp-element`: includes the WordPress Element abstraction for describing the structure of your blocks.
- * `wp-i18n`: To internationalize the block's text.
- *
- * @since 1.0.0
- */
 function copesa_gutenberg_block_infography_cgb_editor_assets() {
-	// Scripts.
 	wp_enqueue_script(
-		'copesa_gutenberg_block_infography-cgb-block-js', // Handle.
-		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
-		array( 'wp-blocks', 'wp-i18n', 'wp-element' ), // Dependencies, defined above.
+		'copesa_gutenberg_block_infography-cgb-block-js',
+		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ),
+		array('wp-blocks', 'wp-i18n', 'wp-element' ),
 		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
 		true // Enqueue the script in the footer.
 	);

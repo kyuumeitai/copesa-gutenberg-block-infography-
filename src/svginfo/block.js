@@ -1,15 +1,13 @@
 import './style.scss';
 import './editor.scss';
 
-const { __, setLocaleData } = wp.i18n;
+const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { MediaUpload } = wp.editor;
 const { Button } = wp.components;
 
-setLocaleData( window.copesa_blocks.localeData, 'copesa-blocks' );
-
 registerBlockType( 'copesa-blocks/svg-infography', {
-	title: __( 'Copesa SVG', 'copesa-blocks' ),
+	title: 'Copesa SVG',
 	icon: 'shield',
 	category: 'common',
 	attributes: {
@@ -32,7 +30,8 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 	keywords: [
 		__( 'copesa' ),
 	],
-	edit: ( props ) => {
+
+	edit: function( props ) {
 		const {
 			className,
 			attributes: {
@@ -57,11 +56,11 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 				<div className="svgimage">
 					<MediaUpload
 						onSelect={ onSelectImage }
-						allowedTypes="image/svg+xml"
+						allowedTypes={ [ 'image/svg+xml' ] }
 						value={ id }
 						render={ ( { open } ) => (
 							<Button className={ id ? 'image-button' : 'button button-large' } onClick={ open } >
-								{ ! id ? __( 'Subir SVG', 'copesa-blocks' ) : <img src={ url } alt="" /> }
+								{ ! id ? __( 'Subir SVG' ) : <img src={ url } alt="" /> }
 							</Button>
 						) }
 					/>
@@ -69,6 +68,7 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 			</div>
 		);
 	},
+
 	save: function( props ) {
 		const {
 			className,
