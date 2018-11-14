@@ -12,7 +12,7 @@ require( 'codemirror/mode/css/css' );
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { MediaUpload } = wp.editor;
+const { MediaUpload, RichText } = wp.editor;
 const { Button } = wp.components;
 
 registerBlockType( 'copesa-blocks/svg-infography', {
@@ -38,6 +38,22 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 		height: {
 			type: 'number',
 		},
+		title: {
+			source: 'html',
+			selector: 'h2',
+		},
+		undertitle: {
+			source: 'html',
+			selector: 'h3',
+		},
+		description: {
+			source: 'html',
+			selector: 'p',
+		},
+		source: {
+			source: 'html',
+			selector: 'h4',
+		},
 	},
 	keywords: [
 		__( 'copesa' ),
@@ -50,6 +66,10 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 				url,
 				id,
 				src,
+				title,
+				undertitle,
+				description,
+				source,
 			},
 			setAttributes,
 		} = props;
@@ -85,23 +105,24 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 
 		const CodemirrorMode = {
 			name: 'htmlmixed',
-			// scriptTypes: [ {
-			// 	matches: /\/x-handlebars-template|\/x-mustache/i,
-			// 	mode: null,
-			// },
-			// {
-			// 	matches: /(text|application)\/(x-)?vb(a|script)/i,
-			// 	mode: 'vbscript',
-			// } ],
-			// tags: {
-			// 	style: [
-			// 		[ null ], [ null, null, 'css' ],
-			// 	],
-			// },
 		};
 
 		return (
 			<div className={ className }>
+				<RichText
+					tagName="h2"
+					className="svgtitle"
+					placeholder="Título de la Infografía"
+					value={ title }
+					onChange={ ( title ) => setAttributes( { title } ) }
+				/>
+				<RichText
+					tagName="h3"
+					className="svgundertitle"
+					placeholder="Bajada"
+					value={ undertitle }
+					onChange={ ( undertitle ) => setAttributes( { undertitle } ) }
+				/>
 				<div className="svgimage">
 					<MediaUpload
 						onSelect={ onSelectImage }
@@ -117,7 +138,7 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 						id && (
 							<div>
 								<Button className="button button-large" onClick={ codeSave } >
-									Guardar HTML
+									Guardar SVG
 								</Button>
 								<CodeMirror
 									value={ htmlBeautify( src, { indent_size: 2 } ) }
@@ -135,6 +156,20 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 						)
 					}
 				</div>
+				<RichText
+					tagName="p"
+					className="svgdescription"
+					placeholder="Descripción"
+					value={ description }
+					onChange={ ( description ) => setAttributes( { description } ) }
+				/>
+				<RichText
+					tagName="h4"
+					className="svgsource"
+					placeholder="Fuente"
+					value={ source }
+					onChange={ ( source ) => setAttributes( { source } ) }
+				/>
 
 			</div>
 		);
@@ -145,13 +180,37 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 			className,
 			attributes: {
 				src,
+				title,
+				undertitle,
+				description,
+				source,
 			},
 		} = props;
 		return (
 			<div className={ className }>
 				{
+					title && (
+						<RichText.Content tagName="h2" className="svgtitle" value={ title } />
+					)
+				}
+				{
+					undertitle && (
+						<RichText.Content tagName="h3" className="svgundertitle" value={ undertitle } />
+					)
+				}
+				{
 					src && (
-						<span dangerouslySetInnerHTML={ { __html: src } }></span>
+						<span className="svgcode" dangerouslySetInnerHTML={ { __html: src } }></span>
+					)
+				}
+				{
+					description && (
+						<RichText.Content tagName="p" className="svgdescription" value={ description } />
+					)
+				}
+				{
+					source && (
+						<RichText.Content tagName="h4" className="svgsource" value={ source } />
 					)
 				}
 			</div>
