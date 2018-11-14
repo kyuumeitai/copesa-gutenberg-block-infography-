@@ -39,19 +39,19 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 			type: 'number',
 		},
 		title: {
-			source: 'html',
+			source: 'attribute',
 			selector: 'h2',
 		},
 		undertitle: {
-			source: 'html',
+			source: 'attribute',
 			selector: 'h3',
 		},
 		description: {
-			source: 'html',
+			source: 'attribute',
 			selector: 'p',
 		},
 		source: {
-			source: 'html',
+			source: 'attribute',
 			selector: 'h4',
 		},
 	},
