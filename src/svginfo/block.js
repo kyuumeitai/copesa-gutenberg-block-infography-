@@ -15,7 +15,7 @@ const { registerBlockType } = wp.blocks;
 const { MediaUpload, RichText } = wp.editor;
 const { Button } = wp.components;
 
-registerBlockType( 'copesa-blocks/svg-infography', {
+const blo = registerBlockType( 'copesa-blocks/svg-infography', {
 	title: 'Copesa SVG',
 	icon: 'shield',
 	category: 'common',
@@ -213,3 +213,5 @@ registerBlockType( 'copesa-blocks/svg-infography', {
 		);
 	},
 } );
+
+console.log( blo );

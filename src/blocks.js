@@ -9,4 +9,8 @@
  * Webpack is compiling as the input file.
  */
 
+console.log( 'blocks' );
+
+import './podcast/block.js';
 import './svginfo/block.js';
+
