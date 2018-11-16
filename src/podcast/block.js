@@ -15,13 +15,13 @@ const settings = {
 	attributes: {
 		src: {
 			type: 'string',
-			source: 'attribute',
+			// source: 'attribute',
 			selector: 'audio',
 			attribute: 'src',
 		},
 		caption: {
 			type: 'string',
-			source: 'html',
+			// source: 'html',
 			selector: 'figcaption',
 		},
 		id: {
@@ -29,19 +29,19 @@ const settings = {
 		},
 		autoplay: {
 			type: 'boolean',
-			source: 'attribute',
+			// source: 'attribute',
 			selector: 'audio',
 			attribute: 'autoplay',
 		},
 		loop: {
 			type: 'boolean',
-			source: 'attribute',
+			// source: 'attribute',
 			selector: 'audio',
 			attribute: 'loop',
 		},
 		preload: {
 			type: 'string',
-			source: 'attribute',
+			// source: 'attribute',
 			selector: 'audio',
 			attribute: 'preload',
 		},
