@@ -45,6 +45,15 @@ const settings = {
 			selector: 'audio',
 			attribute: 'preload',
 		},
+		title: {
+			type: 'string',
+		},
+		undertitle: {
+			type: 'string',
+		},
+		description: {
+			type: 'string',
+		},
 	},
 
 	transforms: {

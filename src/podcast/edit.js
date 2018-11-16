@@ -85,7 +85,7 @@ class AudioEdit extends Component {
 	}
 
 	render() {
-		const { autoplay, caption, loop, preload, src } = this.props.attributes;
+		const { autoplay, caption, loop, preload, src, title, undertitle, description } = this.props.attributes;
 		const { setAttributes, isSelected, className, noticeOperations, noticeUI } = this.props;
 		const { editing } = this.state;
 
@@ -107,17 +107,41 @@ class AudioEdit extends Component {
 		};
 		if ( editing ) {
 			return (
-				<MediaPlaceholder
-					icon="media-audio"
-					className={ className }
-					onSelect={ onSelectAudio }
-					onSelectURL={ this.onSelectURL }
-					accept="audio/*"
-					allowedTypes={ ALLOWED_MEDIA_TYPES }
-					value={ this.props.attributes }
-					notices={ noticeUI }
-					onError={ noticeOperations.createErrorNotice }
-				/>
+				<div>
+					<RichText
+						tagName="h4"
+						className="mediaundertitle"
+						placeholder="Pretítulo"
+						value={ undertitle }
+						onChange={ ( undertitle ) => setAttributes( { undertitle } ) }
+					/>
+					<RichText
+						tagName="h2"
+						className="mediatitle"
+						placeholder="Título del podcast"
+						value={ title }
+						onChange={ ( title ) => setAttributes( { title } ) }
+					/>
+					<RichText
+						tagName="p"
+						className="svgdescription"
+						placeholder="Descripción"
+						value={ description }
+						onChange={ ( description ) => setAttributes( { description } ) }
+					/>
+
+					<MediaPlaceholder
+						icon="media-audio"
+						className={ className }
+						onSelect={ onSelectAudio }
+						onSelectURL={ this.onSelectURL }
+						accept="audio/*"
+						allowedTypes={ ALLOWED_MEDIA_TYPES }
+						value={ this.props.attributes }
+						notices={ noticeUI }
+						onError={ noticeOperations.createErrorNotice }
+					/>
+				</div>
 			);
 		}
 
