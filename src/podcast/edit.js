@@ -85,7 +85,7 @@ class AudioEdit extends Component {
 	}
 
 	render() {
-		const { autoplay, caption, loop, preload, src, title, undertitle, description } = this.props.attributes;
+		const { autoplay, caption, loop, preload, src, title, undertitle, description, author } = this.props.attributes;
 		const { setAttributes, isSelected, className, noticeOperations, noticeUI } = this.props;
 		const { editing } = this.state;
 
@@ -124,10 +124,17 @@ class AudioEdit extends Component {
 					/>
 					<RichText
 						tagName="p"
-						className="svgdescription"
+						className="mediadescription"
 						placeholder="Descripción"
 						value={ description }
 						onChange={ ( description ) => setAttributes( { description } ) }
+					/>
+					<RichText
+						tagName="h4"
+						className="mediaauthor"
+						placeholder="Autor"
+						value={ author }
+						onChange={ ( author ) => setAttributes( { author } ) }
 					/>
 
 					<MediaPlaceholder
@@ -191,13 +198,40 @@ class AudioEdit extends Component {
 					<Disabled>
 						<audio controls="controls" src={ src } />
 					</Disabled>
-					{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
+					{ ( ! RichText.isEmpty( undertitle ) || isSelected ) && (
 						<RichText
-							tagName="figcaption"
-							placeholder={ 'Escribir caption' }
-							value={ caption }
-							onChange={ ( value ) => setAttributes( { caption: value } ) }
-							inlineToolbar
+							tagName="h4"
+							className="mediaundertitle"
+							placeholder="Pretítulo"
+							value={ undertitle }
+							onChange={ ( undertitle ) => setAttributes( { undertitle } ) }
+						/>
+					) }
+					{ ( ! RichText.isEmpty( title ) || isSelected ) && (
+						<RichText
+							tagName="h2"
+							className="mediatitle"
+							placeholder="Título del podcast"
+							value={ title }
+							onChange={ ( title ) => setAttributes( { title } ) }
+						/>
+					) }
+					{ ( ! RichText.isEmpty( description ) || isSelected ) && (
+						<RichText
+							tagName="p"
+							className="mediadescription"
+							placeholder="Descripción"
+							value={ description }
+							onChange={ ( description ) => setAttributes( { description } ) }
+						/>
+					) }
+					{ ( ! RichText.isEmpty( author ) || isSelected ) && (
+						<RichText
+							tagName="h4"
+							className="mediaauthor"
+							placeholder="Autor"
+							value={ author }
+							onChange={ ( author ) => setAttributes( { author } ) }
 						/>
 					) }
 				</figure>

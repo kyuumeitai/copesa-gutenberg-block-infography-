@@ -54,6 +54,9 @@ const settings = {
 		description: {
 			type: 'string',
 		},
+		author: {
+			type: 'string',
+		},
 	},
 
 	transforms: {
