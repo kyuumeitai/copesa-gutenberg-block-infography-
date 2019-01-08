@@ -13,4 +13,7 @@ console.log( 'blocks' );
 
 import './podcast/block.js';
 import './svginfo/block.js';
+import './eje/block.js';
+import './line/block.js';
+import './mapa/block.js';
 

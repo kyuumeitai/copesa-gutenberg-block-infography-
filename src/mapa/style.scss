@@ -1,0 +1,20 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+@import '../../node_modules/codemirror/lib/codemirror';
+@import '../../node_modules/codemirror/theme/material';
+
+.wp-block-copesa-blocks-svg-infography {
+  .svg {
+    width: 100%;
+  }
+  .svgimage {
+    .image-button {
+      display: block;
+      width: 100%;
+    }
+  }
+}
